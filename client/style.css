@@ -1,0 +1,74 @@
+html {
+  font-size: 12px;
+  font-family: Roboto, sans-serif;
+  --nav-color: #161616;
+  --bg-color: #232323;
+  background-color: var(--bg-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0px;
+  /* max-width: 60rem; */
+  overflow: hidden;
+}
+
+#content {
+  margin: 1rem 0px;
+}
+
+#main {
+  margin: .5rem 0px;
+}
+
+#findContainer {
+  margin-bottom: .5rem;
+}
+
+.input-group-text {
+  background-color: #232323;
+  color: #b9b9b9;
+  border-color: #232323;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 100ms ease-in 20ms,
+   background-color 100ms ease-in 20ms,
+       border-color 100ms ease-in 20ms,
+       font-weight 100ms ease-in 20ms;
+  user-select: none;
+}
+
+.input-group-text:hover {
+  background-color: #2962b3;
+  border-color: #2d8ceb;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.input-group-prepend {
+  width: 4rem;
+}
+
+#find, #replace {
+  display: flex;
+  justify-content: center;
+  width: 4rem;
+  text-align: right;
+}
+
+#findThis, #replaceThis {
+  background-color: #161616;
+  color: #a8a8a8;
+  border-color: #2e2e2e;
+}
+
+.form-control {
+  background-color: #343434;
+  color: #a8a8a8;
+  border-color: #1a1a1a;
+}
+
+.form-control:focus {
+  background-color: #e8e8e8;
+}

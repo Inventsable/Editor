@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="com.texteditor.panel">
+        <HostList>
+            <Host Name="AEFT" Port="9000"/>
+            <Host Name="ILST" Port="9000"/>
+        </HostList>
+    </Extension>
+</ExtensionList>
