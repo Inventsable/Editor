@@ -1,8 +1,24 @@
-// alert(docName());
+var thisComp = app.project.activeItem;
+var isSelected = app.project.activeItem.selectedLayers.length > 0;
+
+function textFromClipboard(clipboard) {
+  if (app.project.activeItem.selectedLayers.length > 0) {
+    var textLayer = thisComp.selectedLayers[0];
+    textLayer.sourceText.setValue(clipboard);
+  } else {
+    alert("No text layer selected.")
+  }
+}
 
 function docName() {
-  return app.project.activeItem.name;
+  var paramsDoc = {
+    name: "none",
+    color: "none"
+  };
+  paramsDoc.name = app.project.activeItem.name;
+  return JSON.stringify(paramsDoc);
 }
+
 
 // thanks Horshack @https://forums.adobe.com/thread/2317720
 function dumpPropTree(rootObj, nestingLevel, type, find, replace) {

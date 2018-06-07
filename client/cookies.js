@@ -12,8 +12,8 @@ if (document.cookie.length < 1) {
 
 // resetAllCookies();
 
-var panels = ["note", "main", "findContainer", "replaceContainer"];
-var info = ["noteThis", "mainThis", "findThis", "replaceThis"];
+var panels = ["main", "findContainer", "replaceContainer"];
+var info = ["mainThis", "findThis", "replaceThis"];
 var data = [];
 
 function bakeCookies(){
@@ -37,7 +37,7 @@ function eatCookies(){
 }
 
 function resetAllCookies(){
-  var reset = ["Note", "Input box", "Select this", "text in Find"];
+  var reset = ["Input box", "Select this", "text in Find"];
   while (data.length > 0) {
     data.pop();
   }

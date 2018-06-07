@@ -25,6 +25,28 @@ body {
   margin-bottom: .5rem;
 }
 
+#icon, #plusMark {
+  margin-top: 3px;
+}
+
+#clipboard:hover {
+  background-color: #2962b3;
+  border-color: #2d8ceb;
+  cursor: pointer;
+}
+
+#plusNew:hover {
+  background-color: #13762a;
+  border-color: #33b551;
+  cursor: pointer;
+}
+
+#minusNew:hover {
+  background-color: #761313;
+  border-color: #b53333;
+  cursor: pointer;
+}
+
 .input-group-text {
   background-color: #232323;
   color: #b9b9b9;
@@ -39,11 +61,19 @@ body {
   user-select: none;
 }
 
-.input-group-text:hover {
+#find:hover, #replace:hover {
   background-color: #2962b3;
   border-color: #2d8ceb;
   cursor: pointer;
   text-decoration: underline;
+}
+
+#plusButton, #minusButton {
+  width: 2.25rem;
+}
+
+#plusButton:hover {
+  /* background-color: var(--success); */
 }
 
 .input-group-prepend {
@@ -59,16 +89,24 @@ body {
 
 #findThis, #replaceThis {
   background-color: #161616;
+  /* background-color: #1d1d1d; */
   color: #a8a8a8;
   border-color: #2e2e2e;
 }
 
+#note {
+  margin: .5rem 0px;
+}
+
 .form-control {
-  background-color: #343434;
+  background-color: #1d1d1d;
+  border-color: #2e2e2e;
   color: #a8a8a8;
-  border-color: #1a1a1a;
+  /* border-color: #1a1a1a; */
+  /* background-color: #343434; */
 }
 
 .form-control:focus {
-  background-color: #e8e8e8;
+  background-color: #1d1d1d;
+  color: #a8a8a8;
 }

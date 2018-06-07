@@ -9,6 +9,7 @@ var isToggle = false;
   \
   <MenuItem Id="fullsize" Label="Fullsize Editor" Enabled="true" Checked="false"/> \
   <MenuItem Id="scanning" Label="Scanning" Enabled="true" Checked="true"/> \
+  <MenuItem Id="fulldata" Label="Log data to console" Enabled="true" Checked="false"/> \
   <MenuItem Id="refresh" Label="Refresh panel" Enabled="true" Checked="false"/> \
   </Menu>';
 
@@ -34,6 +35,8 @@ function setPanelCallback(event) {
     } else {
       scanningToggle("Off");
     }
+  } else if (event.data.menuId == "fulldata") {
+    csInterface.evalScript('docName()', msgData)
   }
 }
 
