@@ -51,7 +51,24 @@ function setFindMenu() {
 
 
 function callDoc() {
-	csInterface.evalScript(`docName()`, getDoc);
+	csInterface.evalScript(`activeProject()`, function(e){
+		if (e === true) {
+			console.log("A project exists");
+			csInterface.evalScript(`docName()`, function(b){
+				var newData = JSON.parse(params);
+				datum.comp = newData.comp;
+				console.log(datum.comp);
+			});
+		} else {
+			console.log(`No project.`);
+		}
+	});
+
+	function getDoc(params) {
+		var newData = JSON.parse(params);
+		datum.comp = newData.comp;
+	}
+
 	setLayout();
 	bakeCookies();
 }
@@ -77,10 +94,7 @@ function setLayout() {
 		}
 }
 
-function getDoc(params) {
-	var newData = JSON.parse(params);
-	datum.comp = newData.comp;
-}
+
 
 
 dropDown.addEventListener("focusout", function(){
@@ -315,6 +329,11 @@ function generateNotes() {
 		var parentDiv = document.getElementById("content");
 		parentDiv.insertBefore(inputGroup, listHold);
 	};
+	var prepends = document.getElementsByClassName("input-group-prepend");
+	for (var ao = 0; ao < prepends.length - 2; ao++) {
+		var thisProp = prepends[ao];
+		thisProp.style.display = "none";
+	}
 }
 
 

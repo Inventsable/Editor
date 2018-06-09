@@ -1,8 +1,28 @@
-var thisComp = app.project.activeItem;
-var isSelected = app.project.activeItem.selectedLayers.length > 0;
-var selectedLength = app.project.activeItem.selectedLayers.length;
-var count = 0;
-var selectedLayer = app.project.activeItem.selectedLayers[0];
+var compCheck = app.project.item.length;
+
+var exist = app.project.item.length > 0;
+var thisComp;
+var isSelected;
+var selectedLength;
+var count;
+var selectedLayer;
+
+
+function activeProject() {
+  if (compCheck > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+if (compCheck > 0) {
+  thisComp = app.project.activeItem;
+  isSelected = app.project.activeItem.selectedLayers.length > 0;
+  selectedLength = app.project.activeItem.selectedLayers.length;
+  count = 0;
+  selectedLayer = app.project.activeItem.selectedLayers[0];
+}
 
 function textFromClipboard(clipboard) {
   if (app.project.activeItem.selectedLayers.length > 0) {
@@ -20,9 +40,11 @@ function docName() {
     name: "none",
     color: "none"
   };
-  data.comp = app.project.activeItem.name;
-  // data.doc = app.project.file;
-  return JSON.stringify(data);
+  if (exist) {
+    data.comp = app.project.activeItem.name;
+    // data.doc = app.project.file;
+    return JSON.stringify(data);
+  }
 }
 
 // main("color", "0000ff", "ff0000")
