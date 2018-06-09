@@ -1,39 +1,132 @@
 var csInterface = new CSInterface();
 var extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + "/client/";
 var texthistory = [];
+var panels = ["main", "findContainer", "replaceContainer"];
+var info = ["mainThis", "findThis", "replaceThis"];
+var data = [];
+// window.onload = newCookies();
+
+var datum = {
+	comp: "none",
+	name: "none",
+	notes: 3,
+	selectState: false,
+	findState: "name",
+	main: "Testing any amount of text",
+};
+
+var boot = {
+	nameFind: "Fill 1",
+	nameReplace: "Fill",
+	colorFind: "ff0000",
+	colorReplace: "0000ff",
+	expFind: "check = 0",
+	expReplace: "check = 1",
+};
+
+var notes = ["note 1", "note 2", "note 3"];
 
 if (document.cookie.length < 1) {
   console.log("Creating first cookies.");
   resetAllCookies();
 } else {
   console.log("Cookies already exist.");
-  // convertCookiesToHistory("1");
+  convertCookiesToDatum();
 }
 
-// resetAllCookies();
-
-var panels = ["main", "findContainer", "replaceContainer"];
-var info = ["mainThis", "findThis", "replaceThis"];
-var data = [];
+function newCookies() {
+  setCookie("notes", 3, 30);
+  setCookie("note0", notes[0], 30);
+  setCookie("note1", notes[1], 30);
+  setCookie("note2", notes[2], 30);
+  setCookie("findState", datum.findState, 30);
+  setCookie("selectState", datum.selectState, 30);
+  setCookie("layoutState", datum.layoutState, 30);
+  setCookie("nameFind", boot.nameFind, 30);
+  setCookie("nameReplace", boot.nameReplace, 30);
+  setCookie("colorFind", boot.colorFind, 30);
+  setCookie("colorReplace", boot.colorReplace, 30);
+  setCookie("expFind", boot.expFind, 30);
+  setCookie("expReplace", boot.expReplace, 30);
+}
 
 function bakeCookies(){
-  while (data.length > 0) {
-    data.pop();
+  // while (data.length > 0) {
+  //   data.pop();
+  // }
+  // for (var i = 0; i < panels.length; i++) {
+    // var prop = document.getElementById(info[i]);
+  //   setCookie(panels[i], prop.value, 30);
+  //   data.push(prop.value);
+  // }
+  var main = document.getElementById("mainThis");
+  var findIt = document.getElementById("findThis");
+  var replaceIt = document.getElementById("replaceThis");
+  setCookie("name", datum.name, 30);
+  setCookie("main", main.value, 30);
+  if (datum.findState === "name") {
+      setCookie("nameFind", boot.nameFind, 30);
+      setCookie("nameReplace", boot.nameReplace, 30);
+  } else if (datum.findState === "color") {
+      setCookie("colorFind", boot.colorFind, 30);
+      setCookie("colorReplace", boot.colorReplace, 30);
+  } else if (datum.findState === "exp") {
+      setCookie("expFind", boot.expFind, 30);
+      setCookie("expReplace", boot.expReplace, 30);
   }
-  for (var i = 0; i < panels.length; i++) {
-    var prop = document.getElementById(info[i]);
-    setCookie(panels[i], prop.value, 30);
-    data.push(prop.value);
-  }
-  console.log(`after: ${data}`);
+  setCookie("findState", datum.findState, 30);
+  setCookie("selectState", datum.selectState, 30);
+  setCookie("layoutState", datum.layoutState, 30);
+}
+
+
+
+function convertCookiesToDatum() {
+  datum.name = getCookie("name");
+  datum.notes = getCookie("notes");
+  datum.selectState = getCookie("selectState");
+  datum.findState = getCookie("findState");
+  datum.layoutState = getCookie("layoutState");
+  datum.main = getCookie("main");
+  boot.nameFind = getCookie("nameFind");
+  boot.nameReplace = getCookie("nameReplace");
+  boot.colorFind = getCookie("colorFind");
+  boot.colorReplace = getCookie("colorReplace");
+  boot.expFind = getCookie("expFind");
+  boot.expReplace = getCookie("expReplace");
+  console.log(`Converted from cookies:
+     ${datum}
+     ${boot}`);
 }
 
 function eatCookies(){
-  for (var i = 0; i < panels.length; i++) {
-    var prop = document.getElementById(info[i]);
-    var recipe = getCookie(panels[i]);
-    prop.value = recipe;
-  }
+  // for (var i = 0; i < panels.length; i++) {
+  var prop = document.getElementById("mainThis");
+  var recipe = getCookie("main");
+  datum.layoutState = getCookie("layoutState");
+  prop.value = recipe;
+  // }
+  var switchMenu = ["nameFind", "nameReplace", "colorFind", "colorReplace", "expFind", "expReplace"]
+  // for (var e = 0; e < panels.length; e++) {
+    // var prop = document.getElementById(info[e]);
+    // console.log(datum);
+    // datum.comp = "none";
+    var findThis = document.getElementById('findThis');
+    var replaceThis = document.getElementById('replaceThis');
+    if (datum.findState === "name") {
+        findThis.value = boot.nameFind;
+        replaceThis.value = boot.nameReplace;
+    } else if (datum.findState === "color") {
+        findThis.value = boot.colorFind;
+        replaceThis.value = boot.colorReplace;
+    } else if (datum.findState === "exp") {
+        findThis.value = boot.expFind;
+        replaceThis.value = boot.expReplace;
+    }
+    // console.log(boot);
+    // prop.value = recipe;
+    // setLayout();
+  // }
 }
 
 function resetAllCookies(){
@@ -47,7 +140,8 @@ function resetAllCookies(){
     prop.value = reset[i];
     data.push(prop.value);
   }
-  console.log(`after: ${data}`);
+  console.log(`${datum}
+    ${boot}`);
 }
 
 function removeLastComma(str) {
@@ -65,8 +159,6 @@ function deleteAllCookies() {
     document.cookie = panels[i] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=" + extensionRoot + ";";
 	}
 }
-
-
 
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();

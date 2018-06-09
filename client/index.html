@@ -21,13 +21,37 @@
     <div id="main" class="input-group">
       <textarea id="mainThis" class="form-control"></textarea>
     </div>
-    <div id="findContainer" class="input-group input-group-sm">
+
+    <form id="dropDown" class="form-inline">
+        <!-- <span id="blankMark" class="fa fa-man"></span> -->
+        <button id="openButton" type="button" class="btn btn-primary btn-sm" tabindex="-1">
+          <div id="openMark" class="custom-file">
+            <!-- <input type="file" class="open" id="customFile"> -->
+                <span id="nameMark" class="fa fa-folder-open">
+                <input id="browseHide" name="F" type="file" value="" tabindex="-1" /></span>
+            <!-- </input> -->
+          </div>
+        </button>
+        <button id="selectButton" type="button" class="btn btn-primary btn-sm" tabindex="-1">
+          <span id="selectMark" class="fa fa-mouse-pointer"></span>
+        </button>
+        <span id="toggleMark" class="fa fa-font" tabindex="-1"></span>
+      <select class="custom-select my-1 mr-sm-2" id="kindOf">
+        <!-- <option id="name" value="name" selected>Name</option> -->
+        <option id="name" value="name" selected="true">Name</option>
+        <option id="color" value="color">Color</option>
+        <option id="exp" value="expression">Expression</option>
+      </select>
+    </form>
+
+
+    <div id="findContainer" class="input-group input-group">
       <div class="input-group-prepend">
         <span id="find" class="input-group-text">Find</span>
       </div>
       <input id="findThis" type="text" class="form-control">
     </div>
-    <div id="replaceContainer" class="input-group input-group-sm">
+    <div id="replaceContainer" class="input-group input-group">
       <div class="input-group-prepend">
         <span id="replace" class="input-group-text">Replace</span>
       </div>

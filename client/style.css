@@ -9,7 +9,7 @@ html {
 body {
   background-color: var(--bg-color);
   margin: 0px;
-  /* max-width: 60rem; */
+  min-width: 170px;
   overflow: hidden;
 }
 
@@ -18,7 +18,8 @@ body {
 }
 
 #main {
-  margin: .5rem 0px;
+  margin-top: .75rem;
+  margin-bottom: .5rem;
 }
 
 #findContainer {
@@ -45,6 +46,10 @@ body {
   background-color: #761313;
   border-color: #b53333;
   cursor: pointer;
+}
+
+#note1 {
+  margin: .5rem 0px;
 }
 
 .input-group-text {
@@ -77,36 +82,142 @@ body {
 }
 
 .input-group-prepend {
-  width: 4rem;
+  width: 5rem;
 }
 
 #find, #replace {
   display: flex;
   justify-content: center;
-  width: 4rem;
+  width: 5rem;
   text-align: right;
 }
 
 #findThis, #replaceThis {
-  background-color: #161616;
+  background-color: #1d1d1d;
   /* background-color: #1d1d1d; */
   color: #a8a8a8;
-  border-color: #2e2e2e;
+  /* border-color: #2e2e2e; */
 }
 
 #note {
   margin: .5rem 0px;
 }
 
-.form-control {
+span {
+  color: #b9b9b9;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--bg-color);
+  border-color: transparent;
+}
+
+button:hover {
+  /* background-color: #2962b3;
+  border-color: #2d8ceb; */
+}
+
+#selectButton {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+  border-color: transparent;
+}
+
+#selectButton:hover {
+  /* background-color: #2962b3;
+  border-color: #2d8ceb; */
+}
+
+
+.open {
+  width: 15px;
+}
+
+#selectMark {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-file-input {
+  /* width: 15%; */
+}
+
+#browseHide {
+  position: absolute;
+  opacity: 0;
+  /* right: ; */
+  left: -.5rem;
+  bottom: -3px;
+  height: 1.5rem;
+  width: 3.125rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* #browserHide:hover {
+  cursor: pointer;
+} */
+
+#openButton, #toggleMark {
+  height:1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* cursor: pointer; */
+}
+
+
+#openButton {
+  width: 15%;
+  background-color: var(--bg-color);
+  border-color: transparent;
+  cursor: pointer;
+}
+
+#openButton:hover {
+  /* background-color: #2962b3;
+  border-color: #2d8ceb; */
+  cursor: pointer;
+}
+
+
+
+#toggleMark {
+  width: 10%;
+  margin-left: .25rem;
+}
+
+#openMark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:1rem;
+}
+
+#dropDown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-select {
+  margin-left: .5rem;
+  width: 50%;
+}
+
+.form-inline {
+  margin-bottom: .25rem;
+}
+
+.custom-select, .form-control {
   background-color: #1d1d1d;
   border-color: #2e2e2e;
   color: #a8a8a8;
-  /* border-color: #1a1a1a; */
-  /* background-color: #343434; */
 }
 
-.form-control:focus {
-  background-color: #1d1d1d;
+#findThis:focus, #replaceThis:focus, .form-control:focus {
+  background-color: #161616;
   color: #a8a8a8;
 }
